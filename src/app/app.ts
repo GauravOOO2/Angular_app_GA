@@ -1,12 +1,29 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  standalone: true,
   templateUrl: './app.html',
-  styleUrl: './app.scss'
+  styleUrls: ['./app.scss']
 })
 export class App {
-  protected title = 'simple-buttons-app';
+  message = 'Hello from Angular!';
+  counter = 0;
+
+  showAlert() {
+    alert('🚀 You clicked the alert button!');
+  }
+
+  changeText() {
+    this.message = '✅ Message changed successfully!';
+  }
+
+  increaseCounter() {
+    this.counter++;
+  }
+
+  reset() {
+    this.counter = 0;
+    this.message = 'Hello from Angular!';
+  }
 }
