@@ -19,7 +19,7 @@ export class App {
 
   changeText() {
     this.message = '✅ Message changed successfully!';
-    this.trackEvent('change_text_click', 'user_action', 'Change Text Button');
+    this.trackEvent('change_text_click', 'user_action', 'Change Text Buttons');
   }
 
   increaseCounter() {
