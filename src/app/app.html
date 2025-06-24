@@ -15,10 +15,17 @@
   <button (click)="changeText()">Change Text</button>
   <button (click)="increaseCounter()">Increase Counter</button>
   <button (click)="reset()">Reset</button>
-<form>
-  <input id="name" type="text" formControlName="name" placeholder="Search here" />
-  <button type="submit">Search</button>
-</form>
+
+  <form>
+    <input 
+      id="name" 
+      type="text" 
+      placeholder="Search here"
+      (click)="onSearchClick()"
+    />
+    <button type="submit">Search</button>
+  </form>
+
   <div>
     <p><strong>Message:</strong> {{ message }}</p>
     <p><strong>Counter:</strong> {{ counter }}</p>
