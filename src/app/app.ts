@@ -20,22 +20,22 @@ export class App {
 
   showAlert() {
     alert('🚀 You clicked the alert button!');
-    	this.gaService.trackButtonClick('Sign In Button', 'navbar');
+    	this.gaService.trackButtonClick('SignIn_Register','Sign In Button', 'navbar');
   }
 
   changeText() {
     this.message = '✅ Message changed successfully!';
-    this.gaService.trackButtonClick('Register Button', 'navbar');
+    this.gaService.trackButtonClick('SignIn_Register','Register Button', 'navbar');
   }
 
   increaseCounter() {
     this.counter++;
-    this.gaService.trackButtonClick('Add Number Button', 'navbar');
+    this.gaService.trackButtonClick('Other_buttons','Add Number Button', 'navbar');
   }
 
   reset() {
     this.counter = 0;
     this.message = 'Hello from Angular!';
-    this.gaService.trackButtonClick('Message Button', 'navbar');
+    this.gaService.trackButtonClick('Other_buttons','Message Button', 'navbar');
   }
 }

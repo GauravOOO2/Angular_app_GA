@@ -7,18 +7,21 @@ declare function gtag(
 ): void;
 
 @Injectable({
-	providedIn: 'root'
+  providedIn: 'root'
 })
 export class GoogleAnalyticsService {
-	sendEvent(eventName: string, eventParams: Record<string, any>): void {
-		gtag('event', eventName, eventParams);
-	}
+  sendEvent(eventName: string, eventParams: Record<string, any>): void {
+    gtag('event', eventName, eventParams);
+  }
 
-	trackButtonClick(name: string, location: string): void {
-		this.sendEvent('button_click', {
-			Button_Name: name,
-			Location: location,
-			Device: window.innerWidth < 768 ? 'mobile' : 'desktop'
-		});
-	}
+  // ✅ Now accepts 'group' as the first argument
+  trackButtonClick(group: string, name: string, location: string): void {
+    this.sendEvent('button_click', {
+      Group: group,           // 👈 Passed from component
+      Button_Name: name,
+      Location: location,
+      Device: window.innerWidth < 768 ? 'mobile' : 'desktop'
+    });
+  }
 }
+
