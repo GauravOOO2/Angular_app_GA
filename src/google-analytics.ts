@@ -23,14 +23,6 @@ export class GoogleAnalyticsService {
   });
   }
 
-  trackSearch(searchTerm: string, location: string): void {
-  this.sendEvent('search_performed', {
-    Search_Term: searchTerm,
-    Location: location,
-    Device: window.innerWidth < 768 ? 'mobile' : 'desktop'
-  });
-  }
-
 
 
 }
