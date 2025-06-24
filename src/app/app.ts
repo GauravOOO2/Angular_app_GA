@@ -36,8 +36,30 @@ export class App {
     this.gaService.trackButtonClick('Other_buttons', 'Message Button', 'navbar');
   }
 
-  // Simple search input click tracking
+  // Search input click tracking
   onSearchClick() {
     this.gaService.trackButtonClick('Search_Actions', 'Search_Input_Clicked', 'search_form');
+  }
+
+  // NEW: Search form submission with value
+  onSearchSubmit(event: Event) {
+    event.preventDefault();
+    
+    const form = event.target as HTMLFormElement;
+    const searchInput = form.querySelector('input[name="search"]') as HTMLInputElement;
+    const searchValue = searchInput?.value?.trim() || '';
+
+    // Track the search submission
+    this.gaService.trackButtonClick('Search_Actions', 'Search_Submitted', 'search_form');
+    
+    // Send the search value using sendEvent
+    this.gaService.sendEvent('Search_Value', {
+      Search_Term: searchValue,
+      Search_Length: searchValue.length,
+      Device: window.innerWidth < 768 ? 'mobile' : 'desktop',
+      Location: 'search_form'
+    });
+
+    console.log('Search submitted:', searchValue);
   }
 }

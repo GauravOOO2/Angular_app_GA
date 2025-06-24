@@ -16,9 +16,10 @@
   <button (click)="increaseCounter()">Increase Counter</button>
   <button (click)="reset()">Reset</button>
 
-  <form>
+  <form (submit)="onSearchSubmit($event)">
     <input 
-      id="name" 
+      id="name"
+      name="search"
       type="text" 
       placeholder="Search here"
       (click)="onSearchClick()"
