@@ -50,15 +50,18 @@ export class App {
     const searchValue = searchInput?.value?.trim() || '';
 
     // Track the search submission
-    this.gaService.trackButtonClick('Search_Actions', 'Search_Submitted', 'search_form');
+    // this.gaService.trackButtonClick('Search_Actions', 'Search_Submitted', 'search_form');
     
+
+    this.gaService.trackButtonClick('Search_Actions', 'Search_Result: ' + searchValue, 'search_form');
+
     // Send the search value using sendEvent
-    this.gaService.sendEvent('Search_Value', {
-      Search_Term: searchValue,
-      Search_Length: searchValue.length,
-      Device: window.innerWidth < 768 ? 'mobile' : 'desktop',
-      Location: 'search_form'
-    });
+    // this.gaService.sendEvent('Search_Value', {
+    //   Search_Term: searchValue,
+    //   Search_Length: searchValue.length,
+    //   Device: window.innerWidth < 768 ? 'mobile' : 'desktop',
+    //   Location: 'search_form'
+    // });
 
     console.log('Search submitted:', searchValue);
   }
