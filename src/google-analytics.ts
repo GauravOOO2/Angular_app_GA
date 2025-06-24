@@ -14,7 +14,7 @@ export class GoogleAnalyticsService {
     gtag('event', eventName, eventParams);
   }
 
-  // ✅ Now accepts 'group' as the first argument
+
   trackButtonClick(group: string, name: string, location: string): void {
   this.sendEvent(group, {
     Button_Name: name,

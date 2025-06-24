@@ -38,4 +38,10 @@ export class App {
     this.message = 'Hello from Angular!';
     this.gaService.trackButtonClick('Other_buttons','Message Button', 'navbar');
   }
+
+  onSubmit(): void{
+    // console.warn('Your order has been submitted');
+    this.gaService.trackButtonClick('Search_Bar','Home Page Search Bar', 'body');
+  }
+
 }
