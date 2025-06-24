@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { GoogleAnalyticsService } from '../google-analytics';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 declare let gtag: Function;
 
@@ -13,10 +14,27 @@ declare let gtag: Function;
 
 export class App {
 
-  constructor(private gaService: GoogleAnalyticsService) {}
+  searchForm: FormGroup;
+
+  constructor(
+    private gaService: GoogleAnalyticsService,
+    private fb: FormBuilder) {
+    this.searchForm = this.fb.group({
+      name: ['']
+    });
+  }
 
   message = 'Hello from Angular!';
   counter = 0;
+
+  onSubmit(): void {
+    const searchTerm = this.searchForm.get('name')?.value;
+
+    if (searchTerm?.trim()) {
+      this.gaService.trackSearch(searchTerm, 'Home Page Search Bar');
+    }
+  }
+
 
   showAlert() {
     alert('🚀 You clicked the alert button!');
@@ -37,11 +55,6 @@ export class App {
     this.counter = 0;
     this.message = 'Hello from Angular!';
     this.gaService.trackButtonClick('Other_buttons','Message Button', 'navbar');
-  }
-
-  onSubmit(): void{
-    // console.warn('Your order has been submitted');
-    this.gaService.trackButtonClick('Search_Bar','Home Page Search Bar', 'body');
   }
 
 }

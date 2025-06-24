@@ -16,7 +16,8 @@
   <button (click)="increaseCounter()">Increase Counter</button>
   <button (click)="reset()">Reset</button>
 <form (ngSubmit)="onSubmit()">
-  <input id="name" type="text" formControlName="name">
+  <input id="name" type="text" formControlName="name" placeholder="Search here" />
+  <button type="submit">Search</button>
 </form>
   <div>
     <p><strong>Message:</strong> {{ message }}</p>
