@@ -16,12 +16,11 @@ export class GoogleAnalyticsService {
 
   // ✅ Now accepts 'group' as the first argument
   trackButtonClick(group: string, name: string, location: string): void {
-    this.sendEvent('button_click', {
-      Group: group,           // 👈 Passed from component
-      Button_Name: name,
-      Location: location,
-      Device: window.innerWidth < 768 ? 'mobile' : 'desktop'
-    });
-  }
+  this.sendEvent(group, {
+    Button_Name: name,
+    Location: location,
+    Device: window.innerWidth < 768 ? 'mobile' : 'desktop'
+  });
+}
 }
 
