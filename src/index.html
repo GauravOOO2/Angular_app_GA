@@ -12,8 +12,10 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
-  gtag('config', 'G-VPS360TBBC');
+const userId = 'user_' + Math.random().toString(36).substring(2, 10);
+gtag('config', 'G-VPS360TBBC', {
+    user_id: userId
+  });
 </script>
 </head>
 <body>
