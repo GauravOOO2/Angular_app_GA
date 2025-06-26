@@ -1,5 +1,14 @@
 import { Component } from '@angular/core';
 import { GoogleAnalyticsService } from '../google-analytics';
+import { Inject, PLATFORM_ID, OnInit } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+
+declare global {
+  interface Window {
+    userId?: string;
+
+  }
+}
 
 declare let gtag: Function;
 
@@ -10,10 +19,21 @@ declare let gtag: Function;
   styleUrls: ['./app.scss'],
 })
 export class App {
-  constructor(private gaService: GoogleAnalyticsService) {}
+  constructor(@Inject(PLATFORM_ID) private platformId: Object, private gaService: GoogleAnalyticsService) {}
 
   message = 'Hello from Angular!';
   counter = 0;
+  
+  userId = 'user_' + Math.random().toString(36).substring(3, 10);
+
+  ngOnInit() {
+     if (isPlatformBrowser(this.platformId)) {
+      // ✅ Only runs in browser
+      this.userId = 'user_' + Math.random().toString(36).substring(2, 10);
+      (window as any).userId = this.userId;
+      console.log('userId set in browser:', this.userId);
+    }
+  }
 
   showAlert() {
     alert('🚀 You clicked the alert button!');
@@ -40,7 +60,6 @@ export class App {
   onSearchClick() {
     this.gaService.trackButtonClick('Search_Actions', 'Search_Input_Clicked', 'search_form');
   }
-
   // NEW: Search form submission with value
   // onSearchSubmit(event: Event) {
   //   event.preventDefault();

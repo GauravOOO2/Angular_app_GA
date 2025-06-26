@@ -12,29 +12,37 @@
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-VPS360TBBC"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
+
+
   function gtag(){dataLayer.push(arguments);}
 
   gtag('js', new Date());
 
-  const userId = 'user_' + Math.random().toString(36).substring(2, 10);
+  document.addEventListener("DOMContentLoaded", () => {
+    setTimeout(() => {
+      console.log('userId from Angular:', window.userId);
+    }, 5000); 
+  });
+
+  console.log("dom: ",document)
 
   // Set built-in user_id
   gtag('config', 'G-VPS360TBBC', {
-    user_id: userId,
+    user_id: window.userId,
     debug_mode: false
   });
 
   // ✅ Set user property for custom dimension
-  gtag('set', {
-    user_properties: {
-      custom_user_id: userId
-    }
-  });
+  // gtag('set', {
+  //   user_properties: {
+  //     custom_user_id: userId
+  //   }
+  // });
 
-  // Optional: fire test event
-  gtag('event', 'custom_test_event', {
-    custom_user_id: userId
-  });
+  // // Optional: fire test event
+  // gtag('event', 'custom_test_event', {
+  //   custom_user_id: userId
+  // });
 </script>
 
 
