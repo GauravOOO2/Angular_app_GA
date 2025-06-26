@@ -18,31 +18,18 @@
 
   gtag('js', new Date());
 
-  document.addEventListener("DOMContentLoaded", () => {
-    setTimeout(() => {
-      console.log('userId from Angular:', window.userId);
-    }, 5000); 
-  });
+  const myId = localStorage.getItem('userId') || null;
 
-  console.log("dom: ",document)
-
-  // Set built-in user_id
-  gtag('config', 'G-VPS360TBBC', {
-    user_id: window.userId,
-    debug_mode: true
-  });
-
-  // ✅ Set user property for custom dimension
-  // gtag('set', {
-  //   user_properties: {
-  //     custom_user_id: userId
-  //   }
+  // document.addEventListener("DOMContentLoaded", () => {
+  //   setTimeout(() => {
+  //     console.log('userId from Angular:', myId);
+  //   }, 5000); 
   // });
 
-  // // Optional: fire test event
-  // gtag('event', 'custom_test_event', {
-  //   custom_user_id: userId
-  // });
+  console.log("dom: ",myId)
+
+  gtag('config', 'G-VPS360TBBC',
+    myId ? {user_id:myId}: {});
 </script>
 
 

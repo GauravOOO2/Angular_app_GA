@@ -26,14 +26,23 @@ export class App {
   
   userId = 'user_' + Math.random().toString(36).substring(3, 10);
 
+
   ngOnInit() {
-     if (isPlatformBrowser(this.platformId)) {
-      // ✅ Only runs in browser
-      this.userId = 'user_' + Math.random().toString(36).substring(2, 10);
-      (window as any).userId = this.userId;
-      console.log('userId set in browser:', this.userId);
-    }
+      setTimeout(() => {
+        localStorage.setItem("userId", this.userId)
+      }, 6000);
   }
+
+
+  // ngOnInit() {
+  //    if (isPlatformBrowser(this.platformId)) {
+  //     // ✅ Only runs in browser
+  //     this.userId = 'user_' + Math.random().toString(36).substring(2, 10);
+  //     (window as any).userId = this.userId;
+  //     localStorage.setItem('userId', this.userId);
+  //     console.log('userId set in browser:', this.userId);
+  //   }
+  // }
 
   showAlert() {
     alert('🚀 You clicked the alert button!');
