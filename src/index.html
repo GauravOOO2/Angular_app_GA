@@ -12,10 +12,22 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-const userId = 'user_' + Math.random().toString(36).substring(2, 10);
-gtag('config', 'G-VPS360TBBC',{ debug_mode: true});
-gtag('set',{custom_user_id: userId })
+
+  const userId = 'user_' + Math.random().toString(36).substring(2, 10);
+  console.log('Generated user ID:', userId);
+
+  // 1. Set user_id as a built-in GA4 field
+  gtag('config', 'G-VPS360TBBC', {
+    user_id: userId,
+    debug_mode: true
+  });
+
+  // 2. Attach custom_user_id to a test event
+  gtag('event', 'custom_test_event', {
+    custom_user_id: userId
+  });
 </script>
+
 </head>
 <body>
   <app-root></app-root>
