@@ -6,27 +6,37 @@
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-VPS360TBBC"></script>
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
+
   gtag('js', new Date());
 
   const userId = 'user_' + Math.random().toString(36).substring(2, 10);
-  console.log('Generated user ID:', userId);
 
-  // 1. Set user_id as a built-in GA4 field
-  gtag('config', 'G-VPS360TBBC', {
+  // Set built-in user_id
+  gtag('config', 'G-XXXXXXX', {
     user_id: userId,
     debug_mode: true
   });
 
-  // 2. Attach custom_user_id to a test event
+  // ✅ Set user property for custom dimension
+  gtag('set', {
+    user_properties: {
+      custom_user_id: userId
+    }
+  });
+
+  // Optional: fire test event
   gtag('event', 'custom_test_event', {
     custom_user_id: userId
   });
 </script>
+
 
 </head>
 <body>
