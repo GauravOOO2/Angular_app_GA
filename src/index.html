@@ -13,9 +13,8 @@
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 const userId = 'user_' + Math.random().toString(36).substring(2, 10);
-gtag('config', 'G-VPS360TBBC','set', {
-    user_id: userId,  debug_mode: true
-  });
+gtag('config', 'G-VPS360TBBC',{ debug_mode: true});
+gtag('set',{custom_user_id: userId })
 </script>
 </head>
 <body>
