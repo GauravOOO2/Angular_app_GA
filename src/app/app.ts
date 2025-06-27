@@ -26,11 +26,11 @@ export class App {
   counter = 0;
 
 
-  ngOnInit() {
-      this.userId = 'user_' + Math.random().toString(36).substring(2, 10);
-      // localStorage.setItem('userId', this.userId);
-      console.log('userId set in browser:', this.userId);
-    }
+  // ngOnInit() {
+  //     this.userId = 'user_' + Math.random().toString(36).substring(2, 10);
+  //     // localStorage.setItem('userId', this.userId);
+  //     console.log('userId set in browser:', this.userId);
+  //   }
 
 
   //   ngOnInit(){
