@@ -14,11 +14,12 @@ export class GoogleAnalyticsService {
     gtag('event', eventName, eventParams);
   }
 
+  userId = localStorage.getItem('userId') || null
 
-  trackButtonClick( name: string, location: string, userId: string): void {
+  trackButtonClick( name: string, location: string): void {
   this.sendEvent(name, {
     Location: location,
-    custom_user_id: userId,
+    custom_user_id: this.userId,
     Device: window.innerWidth < 768 ? 'mobile' : 'desktop'
   });
   }

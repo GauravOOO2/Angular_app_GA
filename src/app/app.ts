@@ -46,28 +46,28 @@ export class App {
 
   showAlert() {
     alert('🚀 You clicked the alert button!');
-    this.gaService.trackButtonClick( 'Sign In Button', 'navbar', this.userId);
+    this.gaService.trackButtonClick( 'Sign In Button', 'navbar');
   }
 
   changeText() {
     this.message = '✅ Message changed successfully!';
-    this.gaService.trackButtonClick( 'Register Button', 'navbar',  this.userId);
+    this.gaService.trackButtonClick( 'Register Button', 'navbar');
   }
 
   increaseCounter() {
     this.counter++;
-    this.gaService.trackButtonClick( 'Add Number Button', 'navbar',  this.userId);
+    this.gaService.trackButtonClick( 'Add Number Button', 'navbar');
   }
 
   reset() {
     this.counter = 0;
     this.message = 'Hello from Angular!';
-    this.gaService.trackButtonClick( 'Message Button', 'navbar',  this.userId);
+    this.gaService.trackButtonClick( 'Message Button', 'navbar');
   }
 
   // Search input click tracking
   onSearchClick() {
-    this.gaService.trackButtonClick( 'Search_Input_Clicked', 'search_form',  this.userId);
+    this.gaService.trackButtonClick( 'Search_Input_Clicked', 'search_form');
   }
   // NEW: Search form submission with value
   // onSearchSubmit(event: Event) {
