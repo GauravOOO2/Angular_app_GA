@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { GoogleAnalytics } from './google-analytics';
+import { GoogleAnalyticsService } from './google-analytics';
 
 describe('GoogleAnalytics', () => {
-  let service: GoogleAnalytics;
+  let service: GoogleAnalyticsService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(GoogleAnalytics);
+    service = TestBed.inject(GoogleAnalyticsService);
   });
 
   it('should be created', () => {
