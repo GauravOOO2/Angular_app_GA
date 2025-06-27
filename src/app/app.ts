@@ -69,11 +69,12 @@ export class App {
   }
 
 
-  // loginButton(){
-  //   const  userId = 'user_' + Math.random().toString(36).substring(3, 10);
-  //   localStorage.setItem("userId", userId)
-  //   this.gaService.trackButtonClick( 'LoginButton', 'HomePage',  this.userId);
-  // }
+  loginButton(){
+    const  userId = 'user_' + Math.random().toString(36).substring(3, 10);
+    localStorage.setItem("userId", userId)
+    this.gaService.trackButtonClick( 'LoginButton', 'HomePage',  this.userId);
+    window.location.reload()
+  }
 
   // NEW: Search form submission with value
   // onSearchSubmit(event: Event) {
