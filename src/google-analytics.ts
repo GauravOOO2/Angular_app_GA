@@ -29,7 +29,7 @@ export class GoogleAnalyticsService {
   trackButtonClick( name: string, location: string, userId: string | null): void {
   this.sendEvent(name, {
     Location: location,
-    custom_user_id: userId,
+    user_id: userId,
     Device: window.innerWidth < 768 ? 'mobile' : 'desktop'
   });
   }
