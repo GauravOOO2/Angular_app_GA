@@ -19,6 +19,7 @@ declare let gtag: Function;
   styleUrls: ['./app.scss'],
 })
 export class App {
+  userId!: string | null;
   constructor(@Inject(PLATFORM_ID) private platformId: Object, private gaService: GoogleAnalyticsService) {}
 
   message = 'Hello from Angular!';
@@ -36,37 +37,42 @@ export class App {
   // }
 
 
+    ngOnInit(){
+    const  userId = localStorage.getItem('userId') || null
+    this.userId = userId
+  }
 
   showAlert() {
     alert('🚀 You clicked the alert button!');
-    this.gaService.trackButtonClick( 'Sign In Button', 'navbar');
+    this.gaService.trackButtonClick( 'Sign In Button', 'navbar', this.userId);
   }
 
   changeText() {
     this.message = '✅ Message changed successfully!';
-    this.gaService.trackButtonClick( 'Register Button', 'navbar');
+    this.gaService.trackButtonClick( 'Register Button', 'navbar',  this.userId);
   }
 
   increaseCounter() {
     this.counter++;
-    this.gaService.trackButtonClick( 'Add Number Button', 'navbar');
+    this.gaService.trackButtonClick( 'Add Number Button', 'navbar',  this.userId);
   }
 
   reset() {
     this.counter = 0;
     this.message = 'Hello from Angular!';
-    this.gaService.trackButtonClick( 'Message Button', 'navbar');
+    this.gaService.trackButtonClick( 'Message Button', 'navbar',  this.userId);
   }
 
   // Search input click tracking
   onSearchClick() {
-    this.gaService.trackButtonClick( 'Search_Input_Clicked', 'search_form');
+    this.gaService.trackButtonClick( 'Search_Input_Clicked', 'search_form',  this.userId);
   }
 
 
   loginButton(){
     const  userId = 'user_' + Math.random().toString(36).substring(3, 10);
     localStorage.setItem("userId", userId)
+    this.gaService.trackButtonClick( 'LoginButton', 'HomePage',  this.userId);
   }
 
   // NEW: Search form submission with value

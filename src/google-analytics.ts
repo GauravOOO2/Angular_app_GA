@@ -13,12 +13,12 @@ declare function gtag(
 
 })
 export class GoogleAnalyticsService {
-  userId!: string | null;
+  // userId!: string | null;
 
-  ngOnInit(){
-    const  userId = localStorage.getItem('userId') || null
-    this.userId = userId
-  }
+  // ngOnInit(){
+  //   const  userId = localStorage.getItem('userId') || null
+  //   this.userId = userId
+  // }
 
   sendEvent(eventName: string, eventParams: Record<string, any>): void {
     gtag('event', eventName, eventParams);
@@ -26,10 +26,10 @@ export class GoogleAnalyticsService {
 
 
 
-  trackButtonClick( name: string, location: string): void {
+  trackButtonClick( name: string, location: string, userId: string | null): void {
   this.sendEvent(name, {
     Location: location,
-    custom_user_id: this.userId,
+    custom_user_id: userId,
     Device: window.innerWidth < 768 ? 'mobile' : 'desktop'
   });
   }
