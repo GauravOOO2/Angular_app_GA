@@ -28,9 +28,7 @@ export class App {
 
 
   ngOnInit() {
-      setTimeout(() => {
         localStorage.setItem("userId", this.userId)
-      }, 6000);
   }
 
 
