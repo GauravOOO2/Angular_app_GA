@@ -72,13 +72,15 @@ export class App {
   loginButton(){
     const existing_id = localStorage.getItem("userId")
     if (!existing_id){
-      const  userId = 'user_' + Math.random().toString(36).substring(3, 10)
-    localStorage.setItem("userId", userId)
+      this.userId = 'user_' + Math.random().toString(36).substring(3, 10)
+    localStorage.setItem("userId", this.userId)
     return
     } 
     this.gaService.trackButtonClick( 'LoginButton', 'HomePage',  this.userId);
     window.location.reload()
   }
+
+  
 
   // NEW: Search form submission with value
   // onSearchSubmit(event: Event) {
