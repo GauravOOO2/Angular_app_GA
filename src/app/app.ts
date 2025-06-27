@@ -68,6 +68,10 @@ export class App {
     this.gaService.trackButtonClick( 'Search_Input_Clicked', 'search_form',  this.userId);
   }
 
+   newButton() {
+    this.gaService.trackButtonClick( 'new button', 'home page',  this.userId);
+  }
+
 
   loginButton(){
     const  userId = 'user_' + Math.random().toString(36).substring(3, 10);
