@@ -26,11 +26,11 @@ export class App {
   counter = 0;
 
 
-  ngOnInit() {
-      this.userId = 'user_' + Math.random().toString(36).substring(2, 10);
-      localStorage.setItem('userId', this.userId);
-      console.log('userId set in browser:', this.userId);
-    }
+  // ngOnInit() {
+  //     this.userId = 'user_' + Math.random().toString(36).substring(2, 10);
+  //     localStorage.setItem('userId', this.userId);
+  //     console.log('userId set in browser:', this.userId);
+  //   }
 
 
   //   ngOnInit(){
@@ -69,12 +69,16 @@ export class App {
   }
 
 
-  // loginButton(){
-  //   const  userId = 'user_' + Math.random().toString(36).substring(3, 10);
-  //   localStorage.setItem("userId", userId)
-  //   this.gaService.trackButtonClick( 'LoginButton', 'HomePage',  this.userId);
-  //   window.location.reload()
-  // }
+  loginButton(){
+    const existing_id = localStorage.getItem("userId")
+    if (!existing_id){
+      const  userId = 'user_' + Math.random().toString(36).substring(3, 10)
+    localStorage.setItem("userId", userId)
+    return
+    } 
+    this.gaService.trackButtonClick( 'LoginButton', 'HomePage',  this.userId);
+    window.location.reload()
+  }
 
   // NEW: Search form submission with value
   // onSearchSubmit(event: Event) {
