@@ -76,11 +76,16 @@ export class App {
       this.userId = 'user_' + Math.random().toString(36).substring(3, 10)
     localStorage.setItem("userId", this.userId)
     } 
-    this.gaService.trackButtonClick( 'LoginButton', 'HomePage');
-    window.location.reload()
+    
+ 
+    
+    (window as any).gtag?.('set', { user_id: this.userId });
+
+    }
+
+    // this.gaService.trackButtonClick( 'LoginButton', 'HomePage');
+
   }
-
-
 
   // NEW: Search form submission with value
   // onSearchSubmit(event: Event) {
@@ -106,4 +111,3 @@ export class App {
   //   // });
 
   // }
-}

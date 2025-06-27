@@ -13,7 +13,6 @@ declare function gtag(
 
 })
 export class GoogleAnalyticsService {
-  userId!: string | null;
 
   // ngOnInit(){
   //   const  userId = localStorage.getItem('userId') || null
@@ -31,8 +30,7 @@ export class GoogleAnalyticsService {
 
   trackButtonClick( name: string, location: string): void {
     const  userId = localStorage.getItem('userId') || null
-    this.userId = userId
-    console.log("google analytics files userId: ",userId)
+    // console.log("google analytics files userId: ",userId)
   this.sendEvent(name, {
     Location: location,
     custom_user_id: userId,

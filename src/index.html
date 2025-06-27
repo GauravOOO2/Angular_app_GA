@@ -28,10 +28,17 @@
 
   console.log("dom: ",myId)
 
-  gtag('config', 'G-VPS360TBBC',
+  
+
+  window.gtag('config', 'G-VPS360TBBC',
     myId ? {user_id:myId, debug_mode: true}: {},
     );
     
+			// gtag('config', 'G-VPS360TBBC', {
+			// 	user_id: subId,
+			// 	debug_mode: true
+			// });;
+
 </script>
 
 
