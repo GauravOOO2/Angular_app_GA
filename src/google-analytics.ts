@@ -15,9 +15,8 @@ export class GoogleAnalyticsService {
   }
 
 
-  trackButtonClick(group: string, name: string, location: string): void {
-  this.sendEvent(group, {
-    Button_Name: name,
+  trackButtonClick( name: string, location: string): void {
+  this.sendEvent(name, {
     Location: location,
     Device: window.innerWidth < 768 ? 'mobile' : 'desktop'
   });
